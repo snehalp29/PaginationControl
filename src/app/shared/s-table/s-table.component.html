@@ -1,0 +1,46 @@
+<div class="tableFixHead">
+  <table>
+    <thead>
+      <tr>
+        <td *ngFor="let col of columns">{{ col }}</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of data">
+        <td>{{ item.id }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.phone }}</td>
+        <td>{{ item.email }}</td>
+        <td>{{ item.company }}</td>
+        <td>{{ item.date_entry }}</td>
+        <td>{{ item.org_num }}</td>
+        <td>{{ item.address_1 }}</td>
+        <td>{{ item.city }}</td>
+        <td>{{ item.zip }}</td>
+        <td>{{ item.geo }}</td>
+        <td>{{ item.pan }}</td>
+        <td>{{ item.pin }}</td>
+
+        <td>{{ item.status }}</td>
+        <td>{{ item.fee }}</td>
+        <td>{{ item.guid }}</td>
+        <td>{{ item.date_exit }}</td>
+        <td>{{ item.date_first }}</td>
+        <td>{{ item.date_recent }}</td>
+        <td>{{ item.url }}</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <ng-template #defaultFooter>
+        <p>Please configure table header details</p>
+      </ng-template>
+
+      <ng-container
+        *ngIf="selectedFooterTemplateRef"
+        [ngTemplateOutlet]="selectedFooterTemplateRef || defaultFooter"
+        [ngTemplateOutletContext]="{ $implicit: picked }"
+      >
+      </ng-container>
+    </tfoot>
+  </table>
+</div>
