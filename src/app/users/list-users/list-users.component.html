@@ -1,3 +1,3 @@
-<div *ngIf="$users | async as users">
+<div *ngIf="users$ | async as users">
   <app-s-table [data]="users" [columns]="columnNames"> </app-s-table>
 </div>

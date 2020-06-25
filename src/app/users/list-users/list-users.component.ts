@@ -9,7 +9,7 @@ import { UsersService } from '../users.service';
   styleUrls: ['./list-users.component.sass'],
 })
 export class ListUsersComponent implements OnInit {
-  $users: Observable<UserData[]>;
+  users$: Observable<UserData[]>;
   constructor(private usersService: UsersService) {}
   columnNames = [
     'id',
@@ -34,6 +34,6 @@ export class ListUsersComponent implements OnInit {
   ];
 
   ngOnInit(): void {
-    this.$users = this.usersService.getUsers();
+    this.users$ = this.usersService.getUsers();
   }
 }

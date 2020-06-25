@@ -2,7 +2,7 @@
   <table>
     <thead>
       <tr>
-        <td *ngFor="let col of columns">{{ col }}</td>
+        <th *ngFor="let col of columns">{{ col }}</th>
       </tr>
     </thead>
     <tbody>
@@ -20,7 +20,6 @@
         <td>{{ item.geo }}</td>
         <td>{{ item.pan }}</td>
         <td>{{ item.pin }}</td>
-
         <td>{{ item.status }}</td>
         <td>{{ item.fee }}</td>
         <td>{{ item.guid }}</td>
