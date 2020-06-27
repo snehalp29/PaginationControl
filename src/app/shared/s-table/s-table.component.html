@@ -16,7 +16,7 @@
 
       <ng-container
         [ngTemplateOutlet]="defaultBody"
-        [ngTemplateOutletContext]="{ $implicit: data }"
+        [ngTemplateOutletContext]="{ $implicit: DisplayData }"
       >
       </ng-container>
     </tbody>
@@ -38,6 +38,7 @@
 </div>
 
 <app-s-paginator
+  *ngIf="EnablePagination == true"
   [rows]="rows"
   [first]="first"
   [totalRecords]="totalRecords"

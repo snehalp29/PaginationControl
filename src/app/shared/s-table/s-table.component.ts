@@ -23,6 +23,16 @@ export class STableComponent implements OnInit, OnChanges {
    */
   @Input() data: any[] = [];
 
+  private displayData: any[] = [];
+
+  public get DisplayData(): any[] {
+    return this.displayData;
+  }
+
+  public set DisplayData(v: any[]) {
+    this.displayData = v;
+  }
+
   /**
    * An array of objects to represent dynamic columns.
    */
@@ -48,6 +58,8 @@ export class STableComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
 
+    console.log('enable', this.EnablePagination);
+
   }
 
 
@@ -55,6 +67,8 @@ export class STableComponent implements OnInit, OnChanges {
   pageChanged(pageDetail: PaginatorState) {
     this.first = pageDetail.first;
     this.rows = pageDetail.rows;
+
+    this.populateDisplayData();
 
     // this.onPage.emit({
     //   first: this.first,
@@ -68,14 +82,28 @@ export class STableComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(simpleChange: SimpleChanges) {
+    if (simpleChange.EnablePagination) {
+      this.populateDisplayData();
+    }
+
     if (simpleChange.data) {
       this.data = simpleChange.data.currentValue;
       this.totalRecords = (this.data ? this.data.length : 0);
+      this.populateDisplayData();
     }
 
     if (simpleChange.columns) {
       this.columns = simpleChange.columns.currentValue;
     }
+  }
 
+  private populateDisplayData() {
+    if (this.EnablePagination) {
+      this.displayData = this.data.slice(this.first, this.first + this.rows);
+    }
+    else {
+      this.displayData = this.data.slice(this.first, this.data.length);
+    }
+    // console.log('populateDisplayData', this.displayData)
   }
 }
