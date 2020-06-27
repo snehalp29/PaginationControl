@@ -7,3 +7,8 @@
 .page-item {
   // background-color: #848484;
 }
+
+a.page-disabled {
+  outline: 0 none;
+  color: red;
+}
