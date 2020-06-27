@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, EMPTY } from 'rxjs';
 import { UserData } from '../user.model';
 import { UsersService } from '../users.service';
 import { Column } from '../../shared/s-table/Column';
-import { PageChange } from 'src/app/shared/s-paginator/s-paginator.component';
+import { PaginatorState } from 'src/app/shared/s-paginator/PaginatorState';
 
 @Component({
   selector: 'app-list-users',
@@ -11,8 +11,8 @@ import { PageChange } from 'src/app/shared/s-paginator/s-paginator.component';
   styleUrls: ['./list-users.component.sass'],
 })
 export class ListUsersComponent implements OnInit {
-  users$: Observable<UserData[]>;
-  constructor(private usersService: UsersService) {}
+  users$: Observable<UserData[]> = EMPTY;
+  constructor(private usersService: UsersService) { }
   columnNames: Column[] = [
     { field: 'id', header: 'Id' },
     { field: 'name', header: 'Name' },
@@ -37,10 +37,10 @@ export class ListUsersComponent implements OnInit {
   ];
 
   ngOnInit(): void {
-    this.users$ = this.usersService.getUsersPage();
+    this.users$ = this.usersService.getUsers();
   }
 
-  refreshData(pageData: PageChange): void {
-    this.users$ = this.usersService.getUsersPage(pageData.page, pageData.rows);
-  }
+  // refreshData(pageData: PaginatorState): void {
+  //   this.users$ = this.usersService.getUsersPage(pageData.page, pageData.rows);
+  // }
 }

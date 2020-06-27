@@ -37,4 +37,10 @@
   </table>
 </div>
 
-<app-s-paginator (onPageChange)="updateTable($event)"></app-s-paginator>
+<app-s-paginator
+  [rows]="rows"
+  [first]="first"
+  [totalRecords]="totalRecords"
+  [pageLinkSize]="pageLinks"
+  (PageChanged)="pageChanged($event)"
+></app-s-paginator>
