@@ -1,4 +1,9 @@
 <div *ngIf="users$ | async as users">
-  <app-s-table [data]="users" [columns]="columnNames" [rows]="10">
+  <app-s-table
+    [data]="users"
+    [columns]="columnNames"
+    [EnablePagination]="true"
+    [rows]="10"
+  >
   </app-s-table>
 </div>
