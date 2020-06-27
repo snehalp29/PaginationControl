@@ -3,13 +3,15 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { UserData } from './user.model';
 
+import { shareReplay } from 'rxjs/operators';
+
 @Injectable({
   providedIn: 'root',
 })
 export class UsersService {
   // private baseUrl = 'assets/sample_data.json';
   private baseUrl = 'http://localhost:3000';
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -18,7 +20,9 @@ export class UsersService {
   };
 
   getUsers(): Observable<UserData[]> {
-    return this.http.get<UserData[]>(`${this.baseUrl}/users`, this.httpOptions);
+    return this.http.get<UserData[]>(`${this.baseUrl}/users`, this.httpOptions).pipe(
+      shareReplay(1)
+    )
   }
 
   getUsersPage(
