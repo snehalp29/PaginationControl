@@ -6,6 +6,7 @@ import {
   TemplateRef,
 } from '@angular/core';
 import { UserData } from 'src/app/users/user.model';
+import { Column } from './Column';
 
 @Component({
   selector: 'app-s-table',
@@ -13,15 +14,22 @@ import { UserData } from 'src/app/users/user.model';
   styleUrls: ['./s-table.component.sass'],
 })
 export class STableComponent implements OnInit {
-  @Input() data: UserData[];
-  @Input() columns: string[];
-  picked = 'picked';
+  /**
+   *
+   * An Input data
+   *
+   */
+  @Input() data: any[];
+
+  /**
+   * An array of objects to represent dynamic columns.
+   */
+  @Input() columns: Column[];
   @Input() ShowFooter = false;
-  @Input() showHeader = true;
   @Input() EnablePagination = false;
 
-  @ContentChild('header', { static: false })
-  selectedHeaderTemplateRef: TemplateRef<any>;
+  @ContentChild('body', { static: false })
+  selectedBodyTemplateRef: TemplateRef<any>;
 
   @ContentChild('footer', { static: false })
   selectedFooterTemplateRef: TemplateRef<any>;
