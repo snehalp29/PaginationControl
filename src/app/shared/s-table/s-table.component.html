@@ -22,7 +22,11 @@
     </tbody>
     <tfoot>
       <ng-template #defaultFooter>
-        <p>Please configure table header details</p>
+        <tr>
+          <td [attr.colspan]="columns.length">
+            <p>Please configure table header details</p>
+          </td>
+        </tr>
       </ng-template>
 
       <ng-container
@@ -33,4 +37,4 @@
   </table>
 </div>
 
-<app-s-paginator></app-s-paginator>
+<app-s-paginator (onPageChange)="updateTable($event)"></app-s-paginator>

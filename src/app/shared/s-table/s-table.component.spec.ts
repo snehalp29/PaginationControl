@@ -8,9 +8,8 @@ describe('STableComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ STableComponent ]
-    })
-    .compileComponents();
+      declarations: [STableComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

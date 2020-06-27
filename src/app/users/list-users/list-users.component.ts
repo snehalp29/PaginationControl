@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { UserData } from '../user.model';
 import { UsersService } from '../users.service';
 import { Column } from '../../shared/s-table/Column';
+import { PageChange } from 'src/app/shared/s-paginator/s-paginator.component';
 
 @Component({
   selector: 'app-list-users',
@@ -36,6 +37,10 @@ export class ListUsersComponent implements OnInit {
   ];
 
   ngOnInit(): void {
-    this.users$ = this.usersService.getUsers();
+    this.users$ = this.usersService.getUsersPage();
+  }
+
+  refreshData(pageData: PageChange): void {
+    this.users$ = this.usersService.getUsersPage(pageData.page, pageData.rows);
   }
 }

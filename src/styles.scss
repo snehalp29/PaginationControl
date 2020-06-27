@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+
+$spacer: 1rem;
+$primary: #007bff;
+
+.active {
+  color: $primary;
+}
+.d-flex {
+  display: flex;
+}
+.justify-content-center {
+  justify-content: center;
+}
+
+.ml-1 {
+  margin-left: ($spacer * 0.25) !important;
+}
+
+.ml-2 {
+  margin-left: ($spacer * 0.5) !important;
+}
+
+.mr-1 {
+  margin-right: ($spacer * 0.25) !important;
+}
+
+.mr-2 {
+  margin-right: ($spacer * 0.5) !important;
+}

@@ -4,14 +4,16 @@ import {
   Input,
   ContentChild,
   TemplateRef,
+  Output,
+  EventEmitter,
 } from '@angular/core';
-import { UserData } from 'src/app/users/user.model';
 import { Column } from './Column';
+import { PageChange } from '../s-paginator/s-paginator.component';
 
 @Component({
   selector: 'app-s-table',
   templateUrl: './s-table.component.html',
-  styleUrls: ['./s-table.component.sass'],
+  styleUrls: ['./s-table.component.scss'],
 })
 export class STableComponent implements OnInit {
   /**
@@ -34,7 +36,16 @@ export class STableComponent implements OnInit {
   @ContentChild('footer', { static: false })
   selectedFooterTemplateRef: TemplateRef<any>;
 
+  @Output()
+  UpdateData: EventEmitter<PageChange> = new EventEmitter<PageChange>();
+
   constructor() {}
 
   ngOnInit(): void {}
+
+  updateTable(pageDetail: PageChange) {
+    console.log(pageDetail);
+
+    this.UpdateData.next(pageDetail);
+  }
 }

@@ -1,3 +1,8 @@
 <div *ngIf="users$ | async as users">
-  <app-s-table [data]="users" [columns]="columnNames"> </app-s-table>
+  <app-s-table
+    [data]="users"
+    [columns]="columnNames"
+    (UpdateData)="refreshData($event)"
+  >
+  </app-s-table>
 </div>

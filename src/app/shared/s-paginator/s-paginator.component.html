@@ -1,16 +1,27 @@
-<p>s-paginator works!</p>
-<div class="paginator">
-  <a><span>&lt;</span></a>
-  <a><span> &lt;&lt;</span></a>
+<div class="paginator d-flex justify-content-center">
+  <div>
+    <a class="ml-2"><span>&#124;&lt;</span></a>
+    <a class="ml-2"><span>&laquo;</span></a>
 
-  <span><a>1</a><a>2</a><a>3</a><a>4</a><a>5</a></span>
+    <span>
+      <a
+        *ngFor="let pageNumber of PageLinkArray"
+        class="ml-2 page-item"
+        (click)="pageChanged(pageNumber)"
+      >
+        <span [ngClass]="{ active: pageNumber === currentPage }">
+          {{ pageNumber }}
+        </span>
+      </a>
+    </span>
+    {{ currentPage }}
+    <a class="ml-2"><span>&raquo;</span></a>
+    <a class="ml-2"><span>&gt;&#124;</span></a>
 
-  <a><span>&gt;</span></a>
-  <a><span>&gt;&gt;</span></a>
-
-  <select>
-    <option value="10">10</option>
-    <option value="20">20</option>
-    <option value="30">30</option>
-  </select>
+    <select class="ml-2" (change)="updateRowSize($event.target.value)">
+      <option value="10">10</option>
+      <option value="20">20</option>
+      <option value="30">30</option>
+    </select>
+  </div>
 </div>

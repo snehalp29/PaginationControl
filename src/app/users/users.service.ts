@@ -7,7 +7,8 @@ import { UserData } from './user.model';
   providedIn: 'root',
 })
 export class UsersService {
-  private baseUrl = 'assets/sample_data.json';
+  // private baseUrl = 'assets/sample_data.json';
+  private baseUrl = 'http://localhost:3000';
   constructor(private http: HttpClient) {}
   httpOptions = {
     headers: new HttpHeaders({
@@ -17,6 +18,17 @@ export class UsersService {
   };
 
   getUsers(): Observable<UserData[]> {
-    return this.http.get<UserData[]>(this.baseUrl, this.httpOptions);
+    return this.http.get<UserData[]>(`${this.baseUrl}/users`, this.httpOptions);
+  }
+
+  getUsersPage(
+    currentPage: number = 1,
+    rowsPerPage: number = 10
+  ): Observable<UserData[]> {
+    const queryParams = `?_page=${currentPage}&_limit=${rowsPerPage}`;
+    return this.http.get<UserData[]>(
+      `${this.baseUrl}/users/${queryParams}`,
+      this.httpOptions
+    );
   }
 }
