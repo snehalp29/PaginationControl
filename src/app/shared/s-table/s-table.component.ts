@@ -7,6 +7,7 @@ import {
   EventEmitter,
   SimpleChanges,
   OnChanges,
+  ViewEncapsulation,
 } from '@angular/core';
 import { Column } from './Column';
 import { PaginatorState } from '../s-paginator/PaginatorState';
@@ -15,6 +16,7 @@ import { PaginatorState } from '../s-paginator/PaginatorState';
   selector: 'app-s-table',
   templateUrl: './s-table.component.html',
   styleUrls: ['./s-table.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class STableComponent implements OnChanges {
   /**
