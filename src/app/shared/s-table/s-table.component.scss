@@ -1,26 +1,25 @@
 .tableFixHead {
   overflow-y: auto;
-  height: 500px;
-}
+  max-height: 750px;
 
-.tableFixHead thead th {
-  position: sticky;
-  top: 0;
-}
+  thead th {
+    position: sticky;
+    top: 0;
+  }
 
-/* Just common table stuff. Really. */
-table {
-  border-collapse: collapse;
-  width: 100%;
-}
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
 
-th,
-td {
-  padding: 8px 16px;
-}
+  th,
+  td {
+    padding: 8px 16px;
+  }
 
-th {
-  background: #eee;
+  th {
+    background: #eee;
+  }
 }
 
 /* Borders (if you need them) */
