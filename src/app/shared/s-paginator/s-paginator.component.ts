@@ -50,12 +50,6 @@ export class SPaginatorComponent implements OnInit, OnChanges {
       this.updateFirst();
     }
 
-    if (simpleChange.first) {
-      this.first = simpleChange.first.currentValue;
-      this.updatePageLinks();
-      this.updatePaginatorState();
-    }
-
     if (simpleChange.rows) {
       this.updatePageLinks();
       this.updatePaginatorState();
