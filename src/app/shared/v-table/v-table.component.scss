@@ -1,0 +1,29 @@
+.tableFixHead {
+  overflow-y: auto;
+  max-height: 750px;
+
+  thead th {
+    position: sticky;
+    top: 0;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th,
+  td {
+    padding: 0.25rem 0.75rem;
+    width: 100%;
+  }
+
+  td {
+    box-shadow: inset 1px -1px #000;
+  }
+
+  th {
+    background: #eee;
+    box-shadow: inset 1px 1px #000, 0 1px #000;
+  }
+}

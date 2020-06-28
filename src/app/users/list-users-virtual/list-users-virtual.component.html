@@ -1,12 +1,7 @@
 <p>list-users-virtual works!</p>
 
 <div *ngIf="users$ | async as users">
-  <app-v-table
-    [data]="users"
-    [columns]="columnNames"
-    [EnablePagination]="isPagingEnabled"
-    [rows]="10"
-  >
+  <app-v-table [data]="users" [columns]="columnNames" [rows]="10">
     <ng-template #body let-dataItem let-columnData="colData">
       <tr *ngFor="let item of dataItem" data-cy="s-table-row">
         <td>

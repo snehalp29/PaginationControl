@@ -13,7 +13,6 @@ export class ListUsersVirtualComponent implements OnInit {
 
   users$: Observable<UserData[]> = EMPTY;
   columnNames: Column[] = [];
-  isPagingEnabled = true;
 
   constructor(private usersService: UsersService) {
     this.columnNames = [
