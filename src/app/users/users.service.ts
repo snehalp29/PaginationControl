@@ -39,6 +39,15 @@ export class UsersService {
     );
   }
 
+  updateUser(user: UserData) {
+    const postUrl = `${this.baseUrl}/users/${user.id}`;
+    return this.http.put<UserData>(postUrl, { id: user.id, status: user.status }, this.httpOptions)
+      .pipe(
+        catchError(this.handleError<UserData>('postRow', undefined))
+      );
+  }
+
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.log(error);

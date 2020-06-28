@@ -73,9 +73,20 @@ describe('UsersService', () => {
       }, err => errResponse = err);
 
       httpTestingController.expectOne('http://localhost:3000/users').flush(data, mockErrorResponse);
+    });
 
+    it('should update user data with correct url', () => {
+
+      service.updateUser(user).subscribe((data) => {
+        expect(data).toBeTruthy();
+      });
+
+      const req = httpTestingController.expectOne('http://localhost:3000/users/2');
+      req.flush(user);
 
     });
+
+
   });
 
   describe('getUsersPage', () => {

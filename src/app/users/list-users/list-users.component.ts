@@ -49,8 +49,8 @@ export class ListUsersComponent implements OnInit {
     this.isPagingEnabled = !this.isPagingEnabled;
   }
 
-  submitRow(row: UserData): void {
-    console.log(row);
+  submitRow(user: UserData): void {
+    this.usersService.updateUser(user).subscribe();
   }
 
 }
