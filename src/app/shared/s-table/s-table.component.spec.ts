@@ -26,7 +26,7 @@ describe('STableComponent', () => {
 
   describe('ngOnChanges', () => {
     it('should get all records if EnablePagination is set to false', () => {
-      let a = 1;
+      const a = 1;
       component.ngOnChanges({
         // EnablePagination: new SimpleChange(null, false, false),
         data: new SimpleChange(null, [{ a }, { a }, { a }, { a }, { a }], false),
@@ -37,7 +37,7 @@ describe('STableComponent', () => {
     });
 
     it('should get subset of records if EnablePagination is set to true', () => {
-      let a = 1;
+      const a = 1;
       component.rows = 2;
       component.first = 0;
       component.EnablePagination = true;
@@ -52,7 +52,7 @@ describe('STableComponent', () => {
     });
 
     it('should set totalRecords to 0 if data is not provided', () => {
-      let a = 1;
+      const a = 1;
 
       component.ngOnChanges({
         EnablePagination: new SimpleChange(null, false, false),
@@ -81,14 +81,14 @@ describe('STableComponent', () => {
   describe('pageChanged', () => {
     it('should call populateDisplayData on pageChange event', () => {
       // Arrange
-      let a = 1;
-      let paginatorState: PaginatorState = {
+      const a = 1;
+      const paginatorState: PaginatorState = {
         first: 0,
         rows: 4,
         page: 1,
         pageCount: 2,
         totalRecords: 5
-      }
+      };
       component.EnablePagination = true;
       component.ngOnChanges({
         data: new SimpleChange(null, [{ a }, { a }, { a }, { a }, { a }], false),
@@ -98,7 +98,7 @@ describe('STableComponent', () => {
       fixture.detectChanges();
 
       // Act
-      component.pageChanged(paginatorState)
+      component.pageChanged(paginatorState);
       // Assert
       expect(component.DisplayData.length).toEqual(4);
     });
