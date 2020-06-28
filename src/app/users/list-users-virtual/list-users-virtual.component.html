@@ -1,9 +1,7 @@
-<button data-cy="toggle-pagination" (click)="togglePagination()" class="mb-2">
-  Toggle Pagination
-</button>
+<p>list-users-virtual works!</p>
 
 <div *ngIf="users$ | async as users">
-  <app-s-table
+  <app-v-table
     [data]="users"
     [columns]="columnNames"
     [EnablePagination]="isPagingEnabled"
@@ -12,9 +10,7 @@
     <ng-template #body let-dataItem let-columnData="colData">
       <tr *ngFor="let item of dataItem" data-cy="s-table-row">
         <td>
-          <button data-cy="list-users-submit" (click)="submitRow(item)">
-            Submit
-          </button>
+          <button (click)="submitRow(item)">Edit</button>
         </td>
         <td>{{ item.id }}</td>
         <td>{{ item.name }}</td>
@@ -47,5 +43,5 @@
         </ng-container> -->
       </tr>
     </ng-template>
-  </app-s-table>
+  </app-v-table>
 </div>
