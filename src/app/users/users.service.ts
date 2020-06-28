@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { UserData } from './user.model';
 
-import { shareReplay } from 'rxjs/operators';
+import { shareReplay, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -20,8 +20,10 @@ export class UsersService {
   };
 
   getUsers(): Observable<UserData[]> {
-    return this.http.get<UserData[]>(`${this.baseUrl}/users`, this.httpOptions)
+    const getUrl = `${this.baseUrl}/users`;
+    return this.http.get<UserData[]>(getUrl, this.httpOptions)
       .pipe(
+        catchError(this.handleError<UserData[]>('getUsers', [])),
         shareReplay(1)
       );
   }
@@ -36,4 +38,13 @@ export class UsersService {
       this.httpOptions
     );
   }
+
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.log(error);
+      return of(result as T);
+    };
+  }
+
+
 }

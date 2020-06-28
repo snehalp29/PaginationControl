@@ -59,6 +59,23 @@ describe('UsersService', () => {
       req.flush(user);
 
     });
+
+    it('should return empty array on error', () => {
+      let a = 1;
+      let response: any;
+      let errResponse: any;
+      const mockErrorResponse = { status: 400, statusText: 'Bad Request' };
+      const data = [{ a }, { a }];
+
+      service.getUsers().subscribe(res => {
+        response = res
+        expect(res).toEqual([]);
+      }, err => errResponse = err);
+
+      httpTestingController.expectOne('http://localhost:3000/users').flush(data, mockErrorResponse);
+
+
+    });
   });
 
   describe('getUsersPage', () => {
