@@ -55,7 +55,6 @@ export class SPaginatorComponent implements OnInit, OnChanges {
       this.updatePaginatorState();
     }
 
-
   }
 
 
