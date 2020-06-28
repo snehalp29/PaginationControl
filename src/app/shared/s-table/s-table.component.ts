@@ -79,7 +79,6 @@ export class STableComponent implements OnChanges {
   }
 
   private populateDisplayData() {
-    debugger;
     if (this.EnablePagination) {
       this.displayData = this.data.slice(this.first, this.first + this.rows);
     }
