@@ -28,9 +28,9 @@ export class STableComponent implements OnChanges {
     return this.displayData;
   }
 
-  public set DisplayData(v: any[]) {
-    this.displayData = v;
-  }
+  // public set DisplayData(v: any[]) {
+  //   this.displayData = v;
+  // }
 
   /**
    * An array of objects to represent dynamic columns.
@@ -59,10 +59,10 @@ export class STableComponent implements OnChanges {
     this.first = pageDetail.first;
     this.rows = pageDetail.rows;
     this.populateDisplayData();
-
   }
 
   ngOnChanges(simpleChange: SimpleChanges) {
+
     if (simpleChange.EnablePagination) {
       this.populateDisplayData();
     }
@@ -79,6 +79,7 @@ export class STableComponent implements OnChanges {
   }
 
   private populateDisplayData() {
+    debugger;
     if (this.EnablePagination) {
       this.displayData = this.data.slice(this.first, this.first + this.rows);
     }
