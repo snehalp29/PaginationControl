@@ -2,6 +2,7 @@
   <div>
     <a
       class="ml-2 first-item"
+      data-cy="first-item"
       (click)="changePageToFirst($event)"
       [ngClass]="{ 'page-disabled': isFirstPage() }"
     >
@@ -9,6 +10,7 @@
     </a>
     <a
       class="ml-2 prev-item"
+      data-cy="prev-item"
       (click)="changePageToPrev($event)"
       [ngClass]="{ 'page-disabled': isFirstPage() }"
     >
@@ -17,6 +19,7 @@
 
     <span>
       <a
+        data-cy="page-item"
         *ngFor="let pageLink of pageLinks"
         class="ml-2 page-item"
         (click)="onPageLinkClick($event, pageLink - 1)"
@@ -27,6 +30,7 @@
       </a>
     </span>
     <a
+      data-cy="next-item"
       class="ml-2 next-item"
       (click)="changePageToNext($event)"
       [ngClass]="{ 'page-disabled': isLastPage() }"
@@ -34,6 +38,7 @@
       <span>&raquo;</span>
     </a>
     <a
+      data-cy="last-item"
       class="ml-2 last-item"
       (click)="changePageToLast($event)"
       [ngClass]="{ 'page-disabled': isLastPage() }"
@@ -42,20 +47,41 @@
     </a>
 
     <select
+      data-cy="row-dropdown"
       class="ml-2 row-dropdown"
       [(ngModel)]="rows"
       (change)="updateRowSize($event.target.value)"
     >
-      <option class="row-dropdown-item" value="10">10</option>
-      <option class="row-dropdown-item" value="20">20</option>
-      <option class="row-dropdown-item" value="30">30</option>
-      <option class="row-dropdown-item" value="40">40</option>
-      <option class="row-dropdown-item" value="50">50</option>
-      <option class="row-dropdown-item" value="60">60</option>
-      <option class="row-dropdown-item" value="70">70</option>
-      <option class="row-dropdown-item" value="80">80</option>
-      <option class="row-dropdown-item" value="90">90</option>
-      <option class="row-dropdown-item" value="100">100</option>
+      <option data-cy="row-dropdown-item" class="row-dropdown-item" value="10"
+        >10</option
+      >
+      <option data-cy="row-dropdown-item" class="row-dropdown-item" value="20"
+        >20</option
+      >
+      <option data-cy="row-dropdown-item" class="row-dropdown-item" value="30"
+        >30</option
+      >
+      <option data-cy="row-dropdown-item" class="row-dropdown-item" value="40"
+        >40</option
+      >
+      <option data-cy="row-dropdown-item" class="row-dropdown-item" value="50"
+        >50</option
+      >
+      <option data-cy="row-dropdown-item" class="row-dropdown-item" value="60"
+        >60</option
+      >
+      <option data-cy="row-dropdown-item" class="row-dropdown-item" value="70"
+        >70</option
+      >
+      <option data-cy="row-dropdown-item" class="row-dropdown-item" value="80"
+        >80</option
+      >
+      <option data-cy="row-dropdown-item" class="row-dropdown-item" value="90"
+        >90</option
+      >
+      <option data-cy="row-dropdown-item" class="row-dropdown-item" value="100"
+        >100</option
+      >
     </select>
   </div>
 </div>

@@ -7,7 +7,7 @@
     </thead>
     <tbody>
       <ng-template #defaultBody let-dataItem>
-        <tr *ngFor="let item of dataItem">
+        <tr *ngFor="let item of dataItem" data-cy="s-table-row">
           <td *ngFor="let col of columns">
             {{ item[col.field] }}
           </td>
@@ -21,8 +21,8 @@
       </ng-container>
     </tbody>
     <tfoot>
-      <ng-template #defaultFooter>
-        <tr>
+      <ng-template #defaultNoRecords>
+        <tr *ngIf="DisplayData.length === 0">
           <td [attr.colspan]="columns.length">
             <p>Sorry, we couldn't find any results.</p>
           </td>
@@ -30,7 +30,7 @@
       </ng-template>
 
       <ng-container
-        [ngTemplateOutlet]="selectedFooterTemplateRef || defaultFooter"
+        [ngTemplateOutlet]="selectedFooterTemplateRef || defaultNoRecords"
       >
       </ng-container>
     </tfoot>
