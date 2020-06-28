@@ -35,9 +35,7 @@ export class SPaginatorComponent implements OnInit, OnChanges {
   rowsPerPageItems: number[] = [];
 
 
-  constructor() {
-
-  }
+  constructor() { }
 
   ngOnInit(): void {
     this.updatePaginatorState();
@@ -47,7 +45,6 @@ export class SPaginatorComponent implements OnInit, OnChanges {
     if (simpleChange.totalRecords) {
       this.updatePageLinks();
       this.updatePaginatorState();
-      this.updateFirst();
     }
 
     if (simpleChange.rows) {
@@ -56,8 +53,6 @@ export class SPaginatorComponent implements OnInit, OnChanges {
     }
 
   }
-
-
 
   updatePageLinks() {
     this.pageLinks = [];
@@ -85,13 +80,6 @@ export class SPaginatorComponent implements OnInit, OnChanges {
     return [start, end];
   }
 
-  updateFirst() {
-    const page = this.getPage();
-    if (page > 0 && this.totalRecords && (this.first >= this.totalRecords)) {
-      Promise.resolve(null).then(() => this.changePage(page - 1));
-    }
-  }
-
   changePage(p: number) {
     const pc = this.getPageCount();
 
@@ -110,12 +98,10 @@ export class SPaginatorComponent implements OnInit, OnChanges {
     }
   }
 
-
   onPageLinkClick(event: Event, page: number) {
     this.changePage(page);
     event.preventDefault();
   }
-
 
   updatePaginatorState() {
     this.paginatorState = {
@@ -134,9 +120,11 @@ export class SPaginatorComponent implements OnInit, OnChanges {
   isLastPage() {
     return this.getPage() === this.getPageCount() - 1;
   }
+
   getPageCount() {
     return Math.ceil(this.totalRecords / this.rows) || 1;
   }
+
   getPage(): number {
     return Math.floor(this.first / this.rows);
   }
@@ -145,7 +133,6 @@ export class SPaginatorComponent implements OnInit, OnChanges {
     if (!this.isFirstPage()) {
       this.changePage(0);
     }
-
     event.preventDefault();
   }
 
@@ -163,11 +150,11 @@ export class SPaginatorComponent implements OnInit, OnChanges {
     if (!this.isLastPage()) {
       this.changePage(this.getPageCount() - 1);
     }
-
     event.preventDefault();
   }
 
   updateRowSize(newRowValue: number) {
     this.changePage(this.getPage());
   }
+
 }
