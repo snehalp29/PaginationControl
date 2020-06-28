@@ -174,35 +174,6 @@ export class SPaginatorComponent implements OnInit, OnChanges {
     event.preventDefault();
   }
 
-  pageChanged(clickedPage: number) {
-    console.log(clickedPage);
-
-    this.updatePageLinkArray(
-      this.pageLinks,
-      clickedPage,
-      this.pageLinkSize
-    );
-
-    this.currentPage = clickedPage;
-
-    const pageChanged: PaginatorState = {
-      first: this.first,
-      rows: this.rows,
-      page: clickedPage,
-      pageCount: this.pageCount,
-    };
-
-    this.PageChanged.next(pageChanged);
-  }
-
-  updatePageLinkArray(pageLinkArray: number[], currentPage: number, Size: number) {
-    pageLinkArray.length = 0;
-
-    for (let i = currentPage; i < currentPage + Size; i++) {
-      pageLinkArray.push(i);
-    }
-  }
-
   updateRowSize(newRowValue: number) {
     this.changePage(this.getPage());
   }

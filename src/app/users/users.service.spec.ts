@@ -52,7 +52,7 @@ describe('UsersService', () => {
     it('should call get with correct url', () => {
 
       service.getUsers().subscribe((data) => {
-        // expect(data).toBe(user);
+        expect(data).toBeTruthy();
       });
 
       const req = httpTestingController.expectOne('http://localhost:3000/users')
@@ -63,7 +63,9 @@ describe('UsersService', () => {
 
   describe('getUsersPage', () => {
     it('should call get with correct url and default parameters', () => {
-      service.getUsersPage().subscribe();
+      service.getUsersPage().subscribe((data) => {
+        expect(data).toBeTruthy();
+      });
 
       const req = httpTestingController.expectOne('http://localhost:3000/users/?_page=1&_limit=10')
       req.flush(user);
