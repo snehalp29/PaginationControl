@@ -21,7 +21,7 @@ context('Users', () => {
     it('should toggle paggination when clicked', () => {
       cy.get('[data-cy=s-table-row]').should('have.length', 10);
       cy.get('[data-cy=toggle-pagination]').click();
-      cy.get('[data-cy=s-table-row]').should('have.length', 10);
+      cy.get('[data-cy=s-table-row]').should('have.length', 200);
     });
 
     describe('Pagination On Clicks', () => {
