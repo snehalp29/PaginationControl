@@ -22,6 +22,10 @@ context('Users', () => {
       cy.get('[data-cy=s-table-row]').should('have.length', 10);
       cy.get('[data-cy=toggle-pagination]').click();
       cy.get('[data-cy=s-table-row]').should('have.length', 200);
+      cy.get('[data-cy=paginator]').should('not.exist');
+      cy.get('[data-cy=toggle-pagination]').click();
+      cy.get('[data-cy=s-table-row]').should('have.length', 10);
+      cy.get('[data-cy=paginator]').should('exist');
     });
 
     describe('Pagination On Clicks', () => {
