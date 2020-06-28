@@ -7,11 +7,12 @@ import { Column } from '../../shared/s-table/Column';
 @Component({
   selector: 'app-list-users',
   templateUrl: './list-users.component.html',
-  styleUrls: ['./list-users.component.sass'],
+  styleUrls: ['./list-users.component.scss'],
 })
 export class ListUsersComponent implements OnInit {
   users$: Observable<UserData[]> = EMPTY;
   columnNames: Column[] = [];
+  isPagingEnabled = true;
 
   constructor(private usersService: UsersService) {
     this.columnNames = [
@@ -41,6 +42,10 @@ export class ListUsersComponent implements OnInit {
 
   ngOnInit(): void {
     this.users$ = this.usersService.getUsers();
+  }
+
+  togglePagination(): void {
+    this.isPagingEnabled = !this.isPagingEnabled;
   }
 
 

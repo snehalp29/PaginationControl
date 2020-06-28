@@ -18,6 +18,12 @@ context('Users', () => {
       cy.get('[data-cy=s-table-row]').should('have.length', 10);
     });
 
+    it('should toggle paggination when clicked', () => {
+      cy.get('[data-cy=s-table-row]').should('have.length', 10);
+      cy.get('[data-cy=toggle-pagination]').click();
+      cy.get('[data-cy=s-table-row]').should('have.length', 10);
+    });
+
     describe('Pagination On Clicks', () => {
       it('should have 5 links by default', () => {
         cy.get('[data-cy=page-item]').should('have.length', 5);

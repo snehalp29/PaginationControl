@@ -1,8 +1,10 @@
+<button data-cy="toggle-pagination"  (click)="togglePagination()" class="mb-2">Toggle Pagination</button>
+
 <div *ngIf="users$ | async as users">
   <app-s-table
     [data]="users"
     [columns]="columnNames"
-    [EnablePagination]="true"
+    [EnablePagination]="isPagingEnabled"
     [rows]="10"
   >
   </app-s-table>
