@@ -23,7 +23,7 @@ export class UsersService {
     return this.http.get<UserData[]>(`${this.baseUrl}/users`, this.httpOptions)
       .pipe(
         shareReplay(1)
-      )
+      );
   }
 
   getUsersPage(

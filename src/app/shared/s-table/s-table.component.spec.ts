@@ -21,4 +21,10 @@ describe('STableComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  describe ('', () => {
+    it('', () => {
+
+    });
+  });
 });

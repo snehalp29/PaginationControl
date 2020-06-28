@@ -1,6 +1,5 @@
 import {
   Component,
-  OnInit,
   Input,
   ContentChild,
   TemplateRef,
@@ -17,7 +16,7 @@ import { PaginatorState } from '../s-paginator/PaginatorState';
   templateUrl: './s-table.component.html',
   styleUrls: ['./s-table.component.scss'],
 })
-export class STableComponent implements OnInit, OnChanges {
+export class STableComponent implements OnChanges {
   /**
    * An Input data
    */
@@ -56,28 +55,10 @@ export class STableComponent implements OnInit, OnChanges {
 
   constructor() { }
 
-  ngOnInit(): void {
-
-    console.log('enable', this.EnablePagination);
-
-  }
-
-
-
   pageChanged(pageDetail: PaginatorState) {
     this.first = pageDetail.first;
     this.rows = pageDetail.rows;
-
     this.populateDisplayData();
-
-    // this.onPage.emit({
-    //   first: this.first,
-    //   rows: this.rows
-    // });
-
-    // this.firstChange.emit(this.first);
-    // this.rowsChange.emit(this.rows);
-    // this.tableService.onValueChange(this.data);
 
   }
 
@@ -104,6 +85,5 @@ export class STableComponent implements OnInit, OnChanges {
     else {
       this.displayData = this.data.slice(this.first, this.data.length);
     }
-    // console.log('populateDisplayData', this.displayData)
   }
 }

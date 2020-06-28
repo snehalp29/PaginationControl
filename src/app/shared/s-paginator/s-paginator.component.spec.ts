@@ -66,7 +66,7 @@ describe('SPaginatorComponent', () => {
         expect(activePage.nativeElement.textContent).toContain('4');
         expect(pickedPage.nativeElement.textContent).toContain((component.getPage() + 1).toString());
         let pageValue = component.getPage() - 1;
-        for (let link of component.pageLinks) {
+        for (const link of component.pageLinks) {
           expect(link).toEqual(pageValue);
           pageValue++;
         }
@@ -89,9 +89,9 @@ describe('SPaginatorComponent', () => {
         const pageElsAfterClick = fixture.debugElement.queryAll(By.css('.page-item'));
         const activePage = fixture.debugElement.query(By.css('.active'));
         expect(changePageToFirstSpy);
-        expect(activePage.nativeElement.textContent).toContain("1");
+        expect(activePage.nativeElement.textContent).toContain('1');
         let pageValue = component.getPage() + 1;
-        for (let link of component.pageLinks) {
+        for (const link of component.pageLinks) {
           expect(link).toEqual(pageValue);
           pageValue++;
         }
@@ -117,10 +117,10 @@ describe('SPaginatorComponent', () => {
         const pageElsAfterClick = fixture.debugElement.queryAll(By.css('.page-item'));
         const activePage = fixture.debugElement.query(By.css('.active'));
         expect(changePageToPrevSpy);
-        expect(activePage.nativeElement.textContent).toContain("1");
+        expect(activePage.nativeElement.textContent).toContain('1');
         expect(prevPageEl.nativeElement.textContent).toContain((component.getPage() + 1).toString());
         let pageValue = component.getPage() + 1;
-        for (let link of component.pageLinks) {
+        for (const link of component.pageLinks) {
           expect(link).toEqual(pageValue);
           pageValue++;
         }
@@ -141,10 +141,10 @@ describe('SPaginatorComponent', () => {
         const pageElsAfterClick = fixture.debugElement.queryAll(By.css('.page-item'));
         const activePage = fixture.debugElement.query(By.css('.active'));
         expect(changePageToNextSpy);
-        expect(activePage.nativeElement.textContent).toContain("2");
+        expect(activePage.nativeElement.textContent).toContain('2');
         expect(nextPageEl.nativeElement.textContent).toContain((component.getPage() + 1).toString());
         let pageValue = component.getPage();
-        for (let link of component.pageLinks) {
+        for (const link of component.pageLinks) {
           expect(link).toEqual(pageValue);
           pageValue++;
         }
@@ -163,9 +163,9 @@ describe('SPaginatorComponent', () => {
         const pageElsAfterClick = fixture.debugElement.queryAll(By.css('.page-item'));
         const activePage = fixture.debugElement.query(By.css('.active'));
         expect(changePageToLastSpy);
-        expect(activePage.nativeElement.textContent).toContain("20");
+        expect(activePage.nativeElement.textContent).toContain('20');
         let pageValue = component.getPage() - 3;
-        for (let link of component.pageLinks) {
+        for (const link of component.pageLinks) {
           expect(link).toEqual(pageValue);
           pageValue++;
         }
@@ -193,7 +193,7 @@ describe('SPaginatorComponent', () => {
 
         let data: PaginatorState;
         component.PageChanged.subscribe((value: PaginatorState) => {
-          data = value
+          data = value;
           expect(data).toBeTruthy();
           expect(data.page).toEqual(3);
           expect(data.rows).toEqual(10);

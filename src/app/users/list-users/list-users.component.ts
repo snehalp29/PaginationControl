@@ -35,7 +35,7 @@ export class ListUsersComponent implements OnInit {
       { field: 'date_first', header: 'Date First' },
       { field: 'date_recent', header: 'Date Recent' },
       { field: 'url', header: 'Url' }
-    ]
+    ];
   }
 
 
