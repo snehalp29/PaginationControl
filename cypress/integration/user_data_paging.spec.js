@@ -76,5 +76,4 @@ context('Users', () => {
         cy.get('[data-cy=s-table-row]').should('have.length', 20);
       });
     });
-  });
 });
