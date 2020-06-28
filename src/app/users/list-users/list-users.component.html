@@ -1,4 +1,6 @@
-<button data-cy="toggle-pagination"  (click)="togglePagination()" class="mb-2">Toggle Pagination</button>
+<button data-cy="toggle-pagination" (click)="togglePagination()" class="mb-2">
+  Toggle Pagination
+</button>
 
 <div *ngIf="users$ | async as users">
   <app-s-table
@@ -7,5 +9,17 @@
     [EnablePagination]="isPagingEnabled"
     [rows]="10"
   >
+    <ng-template #body let-dataItem let-columnData="colData">
+      <tr *ngFor="let item of dataItem" data-cy="s-table-row">
+        <ng-container *ngFor="let col of columnData">
+          <td *ngIf="col.field === 'submit'; else tfields">
+            <button (click)="submitRow(item)">Edit</button>
+          </td>
+          <ng-template #tfields>
+            <td>{{ item[col.field] }}</td>
+          </ng-template>
+        </ng-container>
+      </tr>
+    </ng-template>
   </app-s-table>
 </div>

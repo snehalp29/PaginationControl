@@ -16,6 +16,7 @@ export class ListUsersComponent implements OnInit {
 
   constructor(private usersService: UsersService) {
     this.columnNames = [
+      { field: 'submit', header: 'Submit' },
       { field: 'id', header: 'Id' },
       { field: 'name', header: 'Name' },
       { field: 'phone', header: 'Phone' },
@@ -48,5 +49,8 @@ export class ListUsersComponent implements OnInit {
     this.isPagingEnabled = !this.isPagingEnabled;
   }
 
+  submitRow(row: UserData): void {
+    console.log(row);
+  }
 
 }
