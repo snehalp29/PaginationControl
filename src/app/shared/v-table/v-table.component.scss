@@ -1,42 +1,28 @@
-.tableFixHead {
-  overflow-y: auto;
-  max-height: 750px;
-
-  // thead th {
-  //   position: sticky;
-  //   top: 0;
-  // }
-
-  table {
-    border-collapse: collapse;
-    width: 100%;
-  }
-  // tr {
-  //   height: 50px;
-  // }
-
-  th,
-  td {
-    padding: 0.25rem 0.75rem;
-    width: 100%;
-  }
-
-  td {
-    box-shadow: inset 1px -1px #000;
-  }
-
-  th {
-    background: #eee;
-    box-shadow: inset 1px 1px #000, 0 1px #000;
-  }
-}
-
-.d-table {
-  display: table-cell;
-}
-
-.item {
-  align-self: auto;
+.vTable {
+  display: table;
   width: 100%;
+}
+.vTableRow {
+  display: table-row;
+}
+
+.vTableCell,
+.vTableHead {
+  display: table-cell;
+  padding: 3px 10px;
+  border: 1px solid #999999;
   white-space: nowrap;
+}
+.vTableHeading {
+  display: table-header-group;
+  background-color: #ddd;
+  font-weight: bold;
+}
+.vTableFoot {
+  display: table-footer-group;
+  font-weight: bold;
+  background-color: #ddd;
+}
+.vTableBody {
+  display: table-row-group;
 }
