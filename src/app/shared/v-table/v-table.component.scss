@@ -2,15 +2,18 @@
   overflow-y: auto;
   max-height: 750px;
 
-  thead th {
-    position: sticky;
-    top: 0;
-  }
+  // thead th {
+  //   position: sticky;
+  //   top: 0;
+  // }
 
   table {
     border-collapse: collapse;
     width: 100%;
   }
+  // tr {
+  //   height: 50px;
+  // }
 
   th,
   td {
@@ -26,4 +29,8 @@
     background: #eee;
     box-shadow: inset 1px 1px #000, 0 1px #000;
   }
+}
+
+.item {
+  align-self: auto;
 }

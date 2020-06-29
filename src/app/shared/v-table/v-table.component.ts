@@ -5,7 +5,6 @@ import { STableComponent } from '../s-table/s-table.component';
   selector: 'app-v-table',
   templateUrl: './v-table.component.html',
   styleUrls: ['./v-table.component.scss'],
-  encapsulation: ViewEncapsulation.None
 })
 export class VTableComponent extends STableComponent implements OnInit {
 
