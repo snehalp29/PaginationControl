@@ -5,15 +5,28 @@
 .vTableRow {
   display: table-row;
 }
-
-.vTableCell,
 .vTableHead {
+  background: #eee;
+  box-shadow: inset 1px 1px #000, 0 1px #000;
   display: table-cell;
   padding: 0.5rem 1rem;
-  border: 1px solid #999999;
+}
+.vTableCell {
+  display: table-cell;
+  padding: 0.5rem 1rem;
+  box-shadow: inset 1px 1px #000, 0 1px #000;
   white-space: nowrap;
+  line-height: 1.25rem;
 }
 
+.virtual-viewport {
+  width: 100%;
+  height: 420px; /* display approx 10 rows since itemsize is 40 */
+}
+
+.evenRow {
+  background-color: #f9f9f9;
+}
 // .vTableHeading {
 //   display: table-header-group;
 //   background-color: #ddd;
