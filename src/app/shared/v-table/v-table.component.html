@@ -1,17 +1,14 @@
-<div class="vTable">
-  <div class="vTableRow">
-    <div class="vTableHead" *ngFor="let col of columns">
-      {{ col.header }}
+<cdk-virtual-scroll-viewport itemSize="30" style="width: 100%; height: 350px;">
+  <div class="vTable">
+    <div class="vTableRow">
+      <div class="vTableHead" *ngFor="let col of columns">
+        {{ col.header }}
+      </div>
+    </div>
+    <div class="vTableRow" *cdkVirtualFor="let item of data">
+      <div class="vTableCell" *ngFor="let col of columns">
+        {{ item[col.field] }}
+      </div>
     </div>
   </div>
-  <div class="vTableRow" *ngFor="let item of data">
-    <div class="vTableCell" *ngFor="let col of columns" style="width: 100%;">
-      {{ item[col.field] }}
-    </div>
-  </div>
-  <!-- <cdk-virtual-scroll-viewport itemSize="150" style="height: 750px;">
-  </cdk-virtual-scroll-viewport> -->
-  <!-- <div class="vTableRow">
-    <div class="vTableCell">John</div>
-  </div> -->
-</div>
+</cdk-virtual-scroll-viewport>
