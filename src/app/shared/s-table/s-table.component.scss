@@ -33,4 +33,15 @@
   tr:nth-child(even) {
     background-color: #f9f9f9;
   }
+
+  tr:nth-child(even):hover {
+    cursor: pointer;
+    background-color: #eaeaea;
+    color: #333333;
+  }
+  tr:nth-child(odd):hover {
+    cursor: pointer;
+    background-color: #eaeaea;
+    color: #333333;
+  }
 }

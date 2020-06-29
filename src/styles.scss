@@ -2,6 +2,11 @@
 
 $spacer: 1rem;
 $primary: #007bff;
+$warn: #f7cb8d;
+
+.expired {
+  background-color: $warn;
+}
 
 .active {
   color: $primary;
