@@ -31,6 +31,12 @@
   }
 }
 
+.d-table {
+  display: table-cell;
+}
+
 .item {
   align-self: auto;
+  width: 100%;
+  white-space: nowrap;
 }
