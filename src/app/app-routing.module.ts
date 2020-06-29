@@ -7,21 +7,17 @@ import { VScrollComponent } from './vscroll/v-scroll/v-scroll.component';
 const routes: Routes = [
   {
     path: 'users',
-    component: ListUsersComponent,
+    loadChildren: () => import('./users/users.module').then(m => m.UsersModule)
   },
-  {
-    path: 'users-v',
-    component: ListUsersVirtualComponent,
-  },
-  {
-    path: 'vs',
-    component: VScrollComponent,
-  },
+
   {
     path: '',
     redirectTo: 'users',
     pathMatch: 'full',
   },
+  {
+    path: '**', redirectTo: 'users'
+  }
 ];
 
 @NgModule({

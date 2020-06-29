@@ -6,7 +6,7 @@ context('Users', () => {
   });
 
   describe('Happy Path', () => {
-    it('should load users route by default', () => {
+    xit('should load users route by default', () => {
       cy.location('pathname').should('equal', '/users');
     });
 
