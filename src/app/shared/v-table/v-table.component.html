@@ -1,38 +1,18 @@
-<div class="tableFixHead">
-  <table>
-    <thead>
-      <tr>
-        <th *ngFor="let col of columns">{{ col.header }}</th>
-      </tr>
-    </thead>
-    <tbody>
-      <ng-template #defaultBody let-dataItem let-columnData="colData">
-        <tr *ngFor="let item of dataItem" data-cy="s-table-row">
-          <td *ngFor="let col of columnData">
-            {{ item[col.field] }}
-          </td>
-        </tr>
-      </ng-template>
-
-      <ng-container
-        [ngTemplateOutlet]="selectedBodyTemplateRef || defaultBody"
-        [ngTemplateOutletContext]="{ $implicit: DisplayData, colData: columns }"
-      >
-      </ng-container>
-    </tbody>
-    <tfoot>
-      <ng-template #defaultNoRecords>
-        <tr *ngIf="DisplayData.length === 0">
-          <td [attr.colspan]="columns.length">
-            <p>Sorry, we couldn't find any results.</p>
-          </td>
-        </tr>
-      </ng-template>
-
-      <ng-container
-        [ngTemplateOutlet]="selectedFooterTemplateRef || defaultNoRecords"
-      >
-      </ng-container>
-    </tfoot>
-  </table>
-</div>
+<cdk-virtual-scroll-viewport itemSize="30" class="virtual-viewport">
+  <div class="vTable">
+    <div class="vTableRow">
+      <div class="vTableHead" *ngFor="let col of columns">
+        {{ col.header }}
+      </div>
+    </div>
+    <div
+      class="vTableRow"
+      *cdkVirtualFor="let item of data; let even = even"
+      [ngClass]="{ evenRow: even }"
+    >
+      <div class="vTableCell" *ngFor="let col of columns">
+        {{ item[col.field] }}
+      </div>
+    </div>
+  </div>
+</cdk-virtual-scroll-viewport>

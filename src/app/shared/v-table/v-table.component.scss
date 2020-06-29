@@ -1,29 +1,42 @@
-.tableFixHead {
-  overflow-y: auto;
-  max-height: 750px;
-
-  thead th {
-    position: sticky;
-    top: 0;
-  }
-
-  table {
-    border-collapse: collapse;
-    width: 100%;
-  }
-
-  th,
-  td {
-    padding: 0.25rem 0.75rem;
-    width: 100%;
-  }
-
-  td {
-    box-shadow: inset 1px -1px #000;
-  }
-
-  th {
-    background: #eee;
-    box-shadow: inset 1px 1px #000, 0 1px #000;
-  }
+.vTable {
+  display: table;
+  width: 100%;
 }
+.vTableRow {
+  display: table-row;
+}
+.vTableHead {
+  background: #eee;
+  box-shadow: inset 1px 1px #000, 0 1px #000;
+  display: table-cell;
+  padding: 0.5rem 1rem;
+}
+.vTableCell {
+  display: table-cell;
+  padding: 0.5rem 1rem;
+  box-shadow: inset 1px 1px #000, 0 1px #000;
+  white-space: nowrap;
+  line-height: 1.25rem;
+}
+
+.virtual-viewport {
+  width: 100%;
+  height: 420px; /* display approx 10 rows since itemsize is 40 */
+}
+
+.evenRow {
+  background-color: #f9f9f9;
+}
+// .vTableHeading {
+//   display: table-header-group;
+//   background-color: #ddd;
+//   font-weight: bold;
+// }
+// .vTableFoot {
+//   display: table-footer-group;
+//   font-weight: bold;
+//   background-color: #ddd;
+// }
+// .vTableBody {
+//   display: table-row-group;
+// }

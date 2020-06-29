@@ -2,41 +2,5 @@
 
 <div *ngIf="users$ | async as users">
   <app-v-table [data]="users" [columns]="columnNames" [rows]="10">
-    <ng-template #body let-dataItem let-columnData="colData">
-      <tr *ngFor="let item of dataItem" data-cy="s-table-row">
-        <td>
-          <button (click)="submitRow(item)">Edit</button>
-        </td>
-        <td>{{ item.id }}</td>
-        <td>{{ item.name }}</td>
-        <td>{{ item.phone }}</td>
-        <td>{{ item.email }}</td>
-        <td>{{ item.company }}</td>
-        <td>{{ item.date_entry | date }}</td>
-        <td>{{ item.org_num }}</td>
-        <td>{{ item.address_1 }}</td>
-        <td>{{ item.city }}</td>
-        <td>{{ item.zip }}</td>
-        <td>{{ item.geo }}</td>
-        <td>{{ item.pan }}</td>
-        <td>{{ item.pin }}</td>
-        <td>{{ item.status }}</td>
-        <td>{{ item.fee }}</td>
-        <td>{{ item.guid }}</td>
-        <td>{{ item.date_exit | date }}</td>
-        <td>{{ item.date_first | date }}</td>
-        <td>{{ item.date_recent | date }}</td>
-        <td>{{ item.url }}</td>
-
-        <!-- <ng-container *ngFor="let col of columnData">
-          <td *ngIf="col.field === 'submit'; else tfields">
-            <button (click)="submitRow(item)">Edit</button>
-          </td>
-          <ng-template #tfields>
-            <td>{{ item[col.field] }}</td>
-          </ng-template>
-        </ng-container> -->
-      </tr>
-    </ng-template>
   </app-v-table>
 </div>
