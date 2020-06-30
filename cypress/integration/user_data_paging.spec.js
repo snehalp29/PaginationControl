@@ -21,7 +21,7 @@ context('Users', () => {
     it('should toggle paggination when clicked', () => {
       cy.get('[data-cy=s-table-row]').should('have.length', 10);
       cy.get('[data-cy=toggle-pagination]').click();
-      cy.get('[data-cy=s-table-row]').should('have.length', 200);
+      cy.get('[data-cy=s-table-row]').should('have.length', 1000);
       cy.get('[data-cy=paginator]').should('not.exist');
       cy.get('[data-cy=toggle-pagination]').click();
       cy.get('[data-cy=s-table-row]').should('have.length', 10);
@@ -60,14 +60,14 @@ context('Users', () => {
         cy.get('[data-cy=last-item]').click();
 
         cy.get('[data-cy=page-item]').within(() => {
-          cy.get('.active').should('contain', '20');
+          cy.get('.active').should('contain', '100');
         });
       });
       it('should go to previous page when prvious item is clicked', () => {
         cy.get('[data-cy=last-item]').click();
         cy.get('[data-cy=prev-item]').click();
         cy.get('[data-cy=page-item]').within(() => {
-          cy.get('.active').should('contain', '19');
+          cy.get('.active').should('contain', '99');
         });
       });
 
