@@ -1,4 +1,12 @@
-<p>list-users-virtual works!</p>
+<h2>User Data With Virtual Infinite Scroll</h2>
+
+<button
+  class="mb-2"
+  [routerLink]="['/users']"
+  data-cy="list-user-infinite-scroll"
+>
+  Display data using pagination control
+</button>
 
 <div *ngIf="users$ | async as users">
   <app-v-table [data]="users" [columns]="columnNames" [rows]="10">

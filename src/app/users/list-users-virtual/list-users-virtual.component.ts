@@ -16,7 +16,6 @@ export class ListUsersVirtualComponent implements OnInit {
 
   constructor(private usersService: UsersService) {
     this.columnNames = [
-      { field: 'submit', header: 'Submit' },
       { field: 'id', header: 'Id' },
       { field: 'name', header: 'Name' },
       { field: 'phone', header: 'Phone' },
