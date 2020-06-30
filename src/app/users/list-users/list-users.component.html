@@ -1,5 +1,15 @@
+<h2>User Data With Pagination Control</h2>
+
 <button data-cy="toggle-pagination" (click)="togglePagination()" class="mb-2">
   Toggle Pagination
+</button>
+
+<button
+  class="ml-2"
+  [routerLink]="['/users-v']"
+  data-cy="list-user-infinite-scroll"
+>
+  Display data using infinite scroll
 </button>
 
 <div *ngIf="users$ | async as users">

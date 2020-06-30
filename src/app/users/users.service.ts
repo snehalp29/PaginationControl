@@ -9,8 +9,8 @@ import { shareReplay, catchError } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class UsersService {
-  // private baseUrl = 'assets/sample_data.json';
-  private baseUrl = 'http://localhost:3000';
+  private baseUrl = 'assets/sample_data.json';
+  // private baseUrl = 'http://localhost:3000';
   constructor(private http: HttpClient) { }
   httpOptions = {
     headers: new HttpHeaders({
@@ -20,7 +20,8 @@ export class UsersService {
   };
 
   getUsers(): Observable<UserData[]> {
-    const getUrl = `${this.baseUrl}/users`;
+    const getUrl = `${this.baseUrl}`;
+    // const getUrl = `${this.baseUrl}/users`;
     return this.http.get<UserData[]>(getUrl, this.httpOptions)
       .pipe(
         catchError(this.handleError<UserData[]>('getUsers', [])),

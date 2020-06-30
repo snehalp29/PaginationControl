@@ -14,6 +14,7 @@ export class VTableComponent extends STableComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    
   }
 
 }
